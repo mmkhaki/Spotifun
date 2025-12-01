@@ -1,0 +1,3 @@
+
+print(text)
+print(result)
