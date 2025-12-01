@@ -20,3 +20,6 @@ class Playlist:
         sort_musics=[]
         for i in self.musics:
             sort_musics.append(i)
+    def show_playlist(self):
+        for i in self.musics:
+            print(i.name,i.text)

@@ -38,7 +38,11 @@ class Musics:
     def printt_musics(self):
         for i in self.allmusics:
             printmusic(i)
-            
+    def search_music_by_id(self,id):
+        for i in self.allmusics:
+            if i.id==int(id):
+                return i
+        return None    
         
 def printmusic(music):
     print(f"name:{music.name} singer:{music.singer} year:{music.year} rating:{music.score} text:{music.text}")

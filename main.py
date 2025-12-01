@@ -2,8 +2,11 @@ import Singers
 import Singer
 import Musics
 import Music
+import Playlists
+import Playlist
 singers=Singers.Singers(100)
 musics=Musics.Musics()
+playlists=Playlists.Playlists()
 # singer1=Singer.Singer("Tataloo",1)
 # music2=Music.Music("Delbar","Tataloo",1,2000,4,"Man bahat ghahram vali22 ...")
 # singer1.add_own_music(music2)
@@ -82,14 +85,31 @@ while True:
         
     elif func=="searchw":
         print("searchw")
+        
+        
+        
     elif func=="countw":
         print("countw")
-    elif func=="dels":
-        print("dels")
+        
+        
+        
+        
+        
     elif func=="addp":
-        print("addp")
+        playlist_id=arr[1]
+        playlist_name=arr[2]
+        playlist=Playlist.Playlist(playlist_id,playlist_name)
+        playlists.add_to_playlists(playlist)
+        playlists.show()
+        
+        
     elif func=="addmp":
-        print("addmp")
+        music_id=arr[1]
+        playlist_id=arr[2]
+        target_playlist=playlists.search_by_id(playlist_id)
+        target_music=musics.search_music_by_id(music_id)
+        target_playlist.add_music(target_music)
+        target_playlist.show_playlist()
     elif func=="searchp":
         print("searchp")
     elif func=="searchmp":
