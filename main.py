@@ -109,7 +109,7 @@ while True:
         target_playlist=playlists.search_by_id(playlist_id)
         target_music=musics.search_music_by_id(music_id)
         target_playlist.add_music(target_music)
-        target_playlist.show_playlist()
+        target_playlist.show_playlist() #edit
     elif func=="searchp":
         print("searchp")
     elif func=="searchmp":

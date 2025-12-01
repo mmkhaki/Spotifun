@@ -16,4 +16,9 @@ class Singer:
         
     
         
+    def __str__(self):
+        return f"Singer => name: {self.name} | id: {self.id} | musics: \n{self.musics}"
+    
+    def __repr__(self):
+        return self.__str__()
         
