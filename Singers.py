@@ -42,6 +42,10 @@ class Singers:
             if(i.name==name):
                 return i
         return None
+    def find_by_id(self,id):
+        singer_indx=self.sparse[int(id)]
+        singer_target=self.dense[int(singer_indx)]
+        return singer_target
     def prints(self):
         printSingers(self.dense)
                 

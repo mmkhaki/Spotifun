@@ -5,11 +5,16 @@ import Music
 singers=Singers.Singers(100)
 musics=Musics.Musics()
 # singer1=Singer.Singer("Tataloo",1)
+# music2=Music.Music("Delbar","Tataloo",1,2000,4,"Man bahat ghahram vali22 ...")
+# singer1.add_own_music(music2)
+# print(singer1.musics[0].name
+# )
+# music22=singer1.find_music_by_id(1)
+# print(music22.name)
 # singer2=Singer.Singer("chavoshi",2)
 # singer3=Singer.Singer("chavoshi",4)
 # music1=Music.Music("Manbahat",1,1998,5,"Man bahat ghahram vali ...")
 # singer1.add_own_music(music1)
-# music2=Music.Music("Delbar",2,2000,4,"Man bahat ghahram vali22 ...")
 # music3=Music.Music("Salam",3,2020,1,"Man bahat ghahram vali33 ...")
 # musics.add_music(music1)
 # musics.add_music(music2)
@@ -62,7 +67,7 @@ while True:
             text.append(result)
             music_text=input()
         music_text=" ".join(text)
-        target_music=musics.add_music(music_name,singer_name,len(musics.allmusics),music_year,music_score,music_text)
+        target_music=musics.add_music(music_name,singer_name,11,music_year,music_score,music_text)
         print("Target music name:",target_music.name)
         target_singer=singers.find_by_name(singer_name)
         print("Target singer name:",target_singer.name)
@@ -71,6 +76,9 @@ while True:
     elif func=="delms":
         singer_id=arr[1]
         musics_id=arr[2]
+        musics.delete_music(musics_id)
+        target_singer=singers.find_by_id(singer_id)
+        target_singer.remove_own_music(musics_id)
         
     elif func=="searchw":
         print("searchw")
