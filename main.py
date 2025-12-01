@@ -46,7 +46,8 @@ while True:
         singers.cls()
     
     elif func=="findms":
-        print("findms")
+        target_name=arr[1]
+        musics.search_music(target_name)
     elif func=="addms":
         music_name=arr[1]
         singer_name=input()
@@ -61,9 +62,16 @@ while True:
             text.append(result)
             music_text=input()
         music_text=" ".join(text)
-        musics.add_music(music_name,len(musics.allmusics),music_year,music_score,music_text)
+        target_music=musics.add_music(music_name,singer_name,len(musics.allmusics),music_year,music_score,music_text)
+        print("Target music name:",target_music.name)
+        target_singer=singers.find_by_name(singer_name)
+        print("Target singer name:",target_singer.name)
+        target_singer.add_own_music(target_music)
+        print(f"Saved successfully {music_name}")
     elif func=="delms":
-        print("delms")
+        singer_id=arr[1]
+        musics_id=arr[2]
+        
     elif func=="searchw":
         print("searchw")
     elif func=="countw":

@@ -1,10 +1,13 @@
 import Music
+import Singers
 class Musics:
     def __init__(self):
         self.allmusics=[]
-    def add_music(self,name,id,year,score,text):
-        music=Music.Music(name,id,year,score,text)
+    def add_music(self,name,singer,id,year,score,text):
+        music=Music.Music(name,singer,id,year,score,text)
         self.allmusics.append(music)
+        return music#change
+        
     def search_music(self,name):
         for i in self.allmusics:
             if(i.name==name):
@@ -32,7 +35,10 @@ class Musics:
                 target_music=i
                 high_score=i.score
         return target_music
+    def printt_musics(self):
+        for i in self.allmusics:
+            printmusic(i)
             
         
 def printmusic(music):
-    print(f"name:{music.name} year:{music.year} rating:{music.score} text:{music.text}")
+    print(f"name:{music.name} singer:{music.singer} year:{music.year} rating:{music.score} text:{music.text}")

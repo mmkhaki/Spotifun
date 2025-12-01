@@ -33,11 +33,15 @@ class Singers:
         if self.contains(x):
             singer=self.dense[self.sparse[x]]
             printSinger(singer)
-            # print_singer_music(singer)
+            print_singer_music(singer)
             
         else:
             print("We dont have a singer with id ",x)
-    
+    def find_by_name(self,name):
+        for i in self.dense:
+            if(i.name==name):
+                return i
+        return None
     def prints(self):
         printSingers(self.dense)
                 
@@ -58,8 +62,8 @@ def printSingers(singers):
     for i in singers:
         print(f"Singer_id:{i.id} Singer_name:{i.name}")
 def printSinger(singer):
-        print(singer.id,singer.name)
+        print(f"id:{singer.id} name:{singer.name}")
 def print_singer_music(singer):
         for i in singer.musics:
-            print(i.name)
+            print(f"music name:{i.name} music singer:{i.singer} music id:{i.id} music year:{i.year} music score:{i.score} music text:{i.text}")
     
