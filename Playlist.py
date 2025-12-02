@@ -7,9 +7,9 @@ class Playlist:
         self.musics.append(music)
     def search_music(self,id):
         for i in self.musics:
-            if(id==i.id):
-                return True
-        return False
+            if(int(id)==i.id):
+                return i
+        return None
     def delete_music(self,id):
         for i in self.musics:
             if(id==i.id):
