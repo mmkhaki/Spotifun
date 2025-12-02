@@ -115,14 +115,21 @@ while True:
         playlist_id=arr[1]
         target_playlist1=playlists.search_by_id(playlist_id)
         target_playlist1.show_playlist()
+        
     elif func=="searchmp":
         playlist_id2=arr[1]
         music_id2=arr[2]
         target_playlist2=playlists.search_by_id(playlist_id2)
         target_music2=target_playlist2.search_music(music_id2)
         print(target_music2.name)
+        
     elif func=="delmp":
-        print("delmp")
+        playlist_id3=arr[1]
+        music_id3=arr[2]
+        target_playlist3=playlists.search_by_id(playlist_id3)
+        target_music3=target_playlist3.delete_music(music_id3)
+        print(target_music3)
+        
     elif func=="showp":
         print("showp")
     elif func=="playm":

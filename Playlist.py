@@ -12,7 +12,7 @@ class Playlist:
         return None
     def delete_music(self,id):
         for i in self.musics:
-            if(id==i.id):
+            if(int(id)==i.id):
                 self.musics.remove(i)
                 return True
         return False
