@@ -140,6 +140,10 @@ while True:
         print("playm")
     elif func=="undo_playm":
         print("undo_playm")
+    elif func=="get_max_rated":
+        musics.max_rated()
+    elif func=="get_min_rated":
+        musics.min_rated()
     elif func=="quit":
         print("Goodbye")
         break

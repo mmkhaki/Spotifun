@@ -42,7 +42,21 @@ class Musics:
         for i in self.allmusics:
             if i.id==int(id):
                 return i
-        return None    
-        
+        return None   
+    def max_rated(self):
+        min_rated=0
+        for i in self.allmusics:
+            if(float(i.score)>=min_rated):
+                target_music=i
+                min_rated=float(i.score)
+        return printmusic(target_music)
+              
+    def min_rated(self):
+        max_rated=5
+        for i in self.allmusics:
+            if(float(i.score)<=max_rated):
+                target_music1=i
+                max_rated=float(i.score)
+        return printmusic(target_music1)
 def printmusic(music):
     print(f"name:{music.name} singer:{music.singer} year:{music.year} rating:{music.score} text:{music.text}")
