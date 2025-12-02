@@ -56,6 +56,7 @@ while True:
     elif func=="findms":
         target_name=arr[1]
         musics.search_music(target_name)
+
     elif func=="addms":
         music_name=arr[1]
         singer_name=input()
@@ -70,7 +71,7 @@ while True:
             text.append(result)
             music_text=input()
         music_text=" ".join(text)
-        target_music=musics.add_music(music_name,singer_name,11,music_year,music_score,music_text)
+        target_music=musics.add_music(music_name,singer_name,len(musics.allmusics),music_year,music_score,music_text)
         print("Target music name:",target_music.name)
         target_singer=singers.find_by_name(singer_name)
         print("Target singer name:",target_singer.name)
@@ -131,7 +132,10 @@ while True:
         print(target_music3)
         
     elif func=="showp":
-        print("showp")
+        playlist_id4=arr[1]
+        target_playlist4=playlists.search_by_id(playlist_id4)
+        target_playlist4.sort_playlist()
+
     elif func=="playm":
         print("playm")
     elif func=="undo_playm":
