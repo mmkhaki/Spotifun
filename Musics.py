@@ -14,11 +14,16 @@ class Musics:
                 return printmusic(i)
         return print("We dont have music with name ",name)
     def delete_music(self,id):
-        for i in self.allmusics:
-            if(i.id==id):
-                self.allmusics.remove(i)
-                return True
-        return False
+        new_stack=Stack.Stack()
+        for _ in range(self.allmusics.size()):
+            if(self.allmusics.size()==0):
+                break
+            current_id=self.allmusics.peek()
+            if(current_id==id):
+                self.allmusics.pop()
+            new_stack.push(self.allmusics.pop())
+        self.allmusics=new_stack
+        
     def max_rated(self):
         low_score=0
         target_music=None
