@@ -9,7 +9,7 @@ class Musics:
         self.allmusics.push(music)
         return music#change
     def search_music(self,name):
-        for i in self.allmusics:
+        for i in self.allmusics.stack:
             if(i.name==name):
                 return printmusic(i)
         return print("We dont have music with name ",name)
