@@ -71,7 +71,7 @@ while True:
             text.append(result)
             music_text=input()
         music_text=" ".join(text)
-        target_music=musics.add_music(music_name,singer_name,len(musics.allmusics),music_year,music_score,music_text)
+        target_music=musics.add_music(music_name,singer_name,musics.allmusics.size(),music_year,music_score,music_text)
         print("Target music name:",target_music.name)
         target_singer=singers.find_by_name(singer_name)
         print("Target singer name:",target_singer.name)

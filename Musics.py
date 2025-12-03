@@ -1,13 +1,13 @@
 import Music
 import Singers
+import Stack
 class Musics:
     def __init__(self):
-        self.allmusics=[]
+        self.allmusics=Stack.Stack()
     def add_music(self,name,singer,id,year,score,text):
         music=Music.Music(name,singer,id,year,score,text)
-        self.allmusics.append(music)
+        self.allmusics.push(music)
         return music#change
-        
     def search_music(self,name):
         for i in self.allmusics:
             if(i.name==name):
@@ -49,8 +49,7 @@ class Musics:
             if(float(i.score)>=min_rated):
                 target_music=i
                 min_rated=float(i.score)
-        return printmusic(target_music)
-              
+        return printmusic(target_music)        
     def min_rated(self):
         max_rated=5
         for i in self.allmusics:
