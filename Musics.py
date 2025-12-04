@@ -25,21 +25,33 @@ class Musics:
         self.allmusics=new_stack
         
     def max_rated(self):
-        low_score=0
-        target_music=None
-        for i in self.allmusics:
-            if(i.score>low_score):
-                target_music=i
-                low_score=i.score
-        return target_music
+        if self.allmusics.isEmpty():
+            return None
+
+        max_music = None
+        max_score = -1
+
+        for music in self.allmusics.stack:   # ← بدون خراب کردن استک
+            if float(music.score) > max_score:
+                max_score = float(music.score)
+                max_music = music
+    
+        return max_music
+
     def low_rated(self):
-        high_score=5
-        target_music=None
-        for i in self.allmusics:
-            if(i.score<high_score):
-                target_music=i
-                high_score=i.score
-        return target_music
+        if self.allmusics.isEmpty():
+            return print("No musics found!")
+
+        min_music = None
+        min_score = float('inf')
+
+        for music in self.allmusics.stack:
+            if float(music.score) < min_score:
+                min_score = float(music.score)
+                min_music = music
+
+        return printmusic(min_music)
+
     def printt_musics(self):
         for i in self.allmusics:
             printmusic(i)
@@ -48,19 +60,19 @@ class Musics:
             if i.id==int(id):
                 return i
         return None   
-    def max_rated(self):
-        min_rated=0
-        for i in self.allmusics:
-            if(float(i.score)>=min_rated):
-                target_music=i
-                min_rated=float(i.score)
-        return printmusic(target_music)        
-    def min_rated(self):
-        max_rated=5
-        for i in self.allmusics:
-            if(float(i.score)<=max_rated):
-                target_music1=i
-                max_rated=float(i.score)
-        return printmusic(target_music1)
+    # def max_rated(self):
+    #     min_rated=0
+    #     for i in self.allmusics:
+    #         if(float(i.score)>=min_rated):
+    #             target_music=i
+    #             min_rated=float(i.score)
+    #     return printmusic(target_music)        
+    # def min_rated(self):
+    #     max_rated=5
+    #     for i in self.allmusics:
+    #         if(float(i.score)<=max_rated):
+    #             target_music1=i
+    #             max_rated=float(i.score)
+    #     return printmusic(target_music1)
 def printmusic(music):
     print(f"name:{music.name} singer:{music.singer} year:{music.year} rating:{music.score} text:{music.text}")

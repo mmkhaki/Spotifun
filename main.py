@@ -4,6 +4,7 @@ import Musics
 import Music
 import Playlists
 import Playlist
+import re
 singers=Singers.Singers(100)
 musics=Musics.Musics()
 playlists=Playlists.Playlists()
@@ -86,16 +87,7 @@ while True:
         
     elif func=="searchw":
         print("searchw")
-        
-        
-        
-    elif func=="countw":
-        print("countw")
-        
-        
-        
-        
-        
+                
     elif func=="addp":
         playlist_id=arr[1]
         playlist_name=arr[2]
@@ -136,6 +128,15 @@ while True:
         target_playlist4=playlists.search_by_id(playlist_id4)
         target_playlist4.sort_playlist()
 
+    elif func=="countw":
+        singer_id4=arr[1]
+        music_id4=arr[2]
+        word=arr[3]
+        singer_target=singers.find_by_id(singer_id4)
+        music_target=singer_target.find_music_by_id(music_id4)
+        count=music_target.count_word(music_target.text,word)
+        print(count)
+        
     elif func=="playm":
         print("playm")
     elif func=="undo_playm":
@@ -143,7 +144,7 @@ while True:
     elif func=="get_max_rated":
         musics.max_rated()
     elif func=="get_min_rated":
-        musics.min_rated()
+        musics.low_rated()
     elif func=="quit":
         print("Goodbye")
         break
