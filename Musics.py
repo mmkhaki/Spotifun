@@ -17,10 +17,9 @@ class Musics:
                 printmusic(current)
                 found=True
             new_stack.push(self.allmusics.pop())
-        if(found):
-            while not new_stack.isEmpty():
+        while not new_stack.isEmpty():
                 self.allmusics.push(new_stack.pop())
-        else:
+        if(not found):
             return print("We dont have music with name ",name)
     def delete_music(self,id):
         new_stack=Stack.Stack()
@@ -65,10 +64,18 @@ class Musics:
         for i in self.allmusics:
             printmusic(i)
     def search_music_by_id(self,id):
-        for i in self.allmusics.stack:
-            if i.id==int(id):
-                return i
-        return None   
+        new_stack=Stack.Stack()
+        found=False
+        for _ in range(self.allmusics.size()):
+            current=self.allmusics.peek()
+            if(current.id==int(id)):
+                found=True
+                return current
+            new_stack.push(self.allmusics.pop())
+        while not new_stack.isEmpty():
+            self.allmusics.push(new_stack.pop()) 
+        if(not found):
+            return None
     # def max_rated(self):
     #     min_rated=0
     #     for i in self.allmusics:

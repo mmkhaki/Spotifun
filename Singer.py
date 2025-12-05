@@ -21,10 +21,20 @@ class Singer:
             return None
         
     def find_music_by_id_bool(self,id):
-        for i in self.musics:
-            if(i.id==int(id)):
+        new_stack=Stack.Stack()
+        found=False
+        for _ in range(self.musics.size()):
+            current=self.musics.peek()
+            if(current.id==int(id)):
+                found=True
                 return True
-        return False
+            new_stack.push(self.musics.pop())
+        while not new_stack.isEmpty():
+            self.musics.push(new_stack.pop())
+        if(not found):
+            return False
+        
+        
     def remove_own_music(self, id):
         music = self.find_music_by_id(id)
         if music is None:

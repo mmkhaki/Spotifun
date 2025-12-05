@@ -71,6 +71,7 @@ def start():
             target_name = arr[1]
             musics.search_music(target_name)
 
+        #checked
         elif func == "addms":
             music_name = arr[1]
             singer_name = input()
@@ -124,6 +125,7 @@ def start():
             count = music_target.count_word(music_target.text, word)
             print(count)
 
+        #checked
         elif func == "addp":
             playlist_id = arr[1]
             playlist_name = arr[2]
@@ -131,6 +133,7 @@ def start():
             playlists.add_to_playlists(playlist)
             playlists.show()
 
+        #checked
         elif func == "addmp":
             music_id = arr[1]
             playlist_id = arr[2]
@@ -139,6 +142,7 @@ def start():
             target_playlist.add_music(target_music)
             target_playlist.show_playlist()  # edit
 
+        #checked
         elif func == "searchp":
             playlist_id = arr[1]
             target_playlist1 = playlists.search_by_id(playlist_id)
@@ -178,7 +182,7 @@ def start():
             if (target_music5 is None):
                 print(f"No music with id {music_id5}")
                 continue
-            elif (target_singer5 is None):
+            if (target_singer5 is None):
                 print(f"No singer with id {singer_id5}")
                 continue
             if (target_singer5.find_music_by_id_bool(music_id5)):
@@ -204,11 +208,11 @@ def start():
         else:
             print("Invalid request")
 
-
-while True:
-    try:
-        start()
-    except:
-        print("Please try again your request was invalid")
+start()
+# while True:
+#     try:
+#         start()
+#     except:
+#         print("Please try again your request was invalid")
 
 

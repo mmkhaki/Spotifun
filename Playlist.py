@@ -1,15 +1,27 @@
+import Stack
 class Playlist:
     def __init__(self,id,name):
         self.id=id
         self.name=name
-        self.musics=[]
+        self.musics=Stack.Stack()
     def add_music(self,music):
-        self.musics.append(music)
+        self.musics.push(music)
+    #checked ok
     def search_music(self,id):
-        for i in self.musics:
-            if(int(id)==i.id):
-                return i
-        return None
+        new_stack=Stack.Stack()
+        found=False
+        for _ in range(self.musics.size()):
+            current=self.musics.peek()
+            if(current.id==int(id)):
+                while not new_stack.isEmpty():
+                    self.musics.push(new_stack.pop())
+                return current
+            new_stack.push(self.musics.pop())
+        while not new_stack.isEmpty():
+            self.musics.push(new_stack.pop())
+        if(not found):
+            return print("We dont have music with name ",id)
+        
     def delete_music(self,id):
         for i in self.musics:
             if(int(id)==i.id):
@@ -18,7 +30,7 @@ class Playlist:
         return False
 
     def show_playlist(self):
-        for i in self.musics:
+        for i in self.musics.stack:
             print(i.name,i.text)
         
     def merge_sort(self,arr):

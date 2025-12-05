@@ -4,11 +4,20 @@ class Playlists:
         self.all_play_list=Stack.Stack()
     def add_to_playlists(self,playlist):
         self.all_play_list.push(playlist)
+    #تابع کمکی بلااستفاده است
     def show(self):
         for i in self.all_play_list.stack:
             print(i.id,i.name)
     def search_by_id(self,id):
-        for i in self.all_play_list.stack:
-            if i.id==id:
-                return i
-        return None
+        found=False
+        new_stack=Stack.Stack()
+        for _ in range(self.all_play_list.size()):
+            current=self.all_play_list.peek()
+            if current.id==id:
+                return current
+            new_stack.push(self.all_play_list.pop())
+        while not new_stack.isEmpty():
+            self.all_play_list.push(new_stack.pop())
+        if(not found):
+            print("HH")
+            return None
