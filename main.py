@@ -5,6 +5,7 @@ import Music
 import Playlists
 import Playlist
 import History
+import Stack
 singers=Singers.Singers(100)
 musics=Musics.Musics()
 playlists=Playlists.Playlists()
@@ -85,7 +86,16 @@ while True:
         musics.delete_music(musics_id)
         target_singer=singers.find_by_id(singer_id)
         target_singer.remove_own_music(musics_id)
-        
+        #delete from playlists
+        new_stack=Stack.Stack()
+        counter=playlists.all_play_list.size()
+        for _ in range(counter):
+            current_playlist=playlists.all_play_list.peek()
+            current_playlist.delete_music(musics_id)
+            new_stack.push(playlists.all_play_list.pop())
+        while not new_stack.isEmpty():
+            playlists.all_play_list.push(new_stack.pop())
+            
     elif func=="searchw":
         print("searchw")
                 

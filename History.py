@@ -20,9 +20,7 @@ class History:
         print(self.musics.peek())
         for _ in range(self.count):
             self.musics.push(new_stack.pop())
-        self.count+=1
-        
-        
+        self.count+=1      
     
     def show(self):
         for i in self.musics.stack:

@@ -15,8 +15,11 @@ class Singer:
             if(i.id==int(id)):
                 return True
         return False
-    def remove_own_music(self,id):
-        music=self.find_music_by_id(id)
+    def remove_own_music(self, id):
+        music = self.find_music_by_id(id)
+        if music is None:
+            (f"No music with id {id} for singer {self.name}")
+            return
         self.musics.remove(music)
         
     
