@@ -114,6 +114,9 @@ while True:
         music_id2=arr[2]
         target_playlist2=playlists.search_by_id(playlist_id2)
         target_music2=target_playlist2.search_music(music_id2)
+        if(target_music2 is None):
+            print(f"No music with id {music_id2}")
+            continue
         print(target_music2.name)
         
     elif func=="delmp":
@@ -121,6 +124,9 @@ while True:
         music_id3=arr[2]
         target_playlist3=playlists.search_by_id(playlist_id3)
         target_music3=target_playlist3.delete_music(music_id3)
+        if(target_music3 is None):
+            print(f"No music with id {music_id2}")
+            continue
         print(target_music3)
         
     elif func=="showp":

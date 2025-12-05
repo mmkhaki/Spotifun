@@ -56,7 +56,7 @@ class Musics:
         for i in self.allmusics:
             printmusic(i)
     def search_music_by_id(self,id):
-        for i in self.allmusics:
+        for i in self.allmusics.stack:
             if i.id==int(id):
                 return i
         return None   
