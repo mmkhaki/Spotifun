@@ -1,15 +1,25 @@
+import Stack
 class Singer:
     def __init__(self,name,id):
         self.name=name
         self.id=id
-        self.musics=[]
+        self.musics=Stack.Stack()
     def add_own_music(self,music):
-        self.musics.append(music)
+        self.musics.push(music)
     def find_music_by_id(self,id):
-        for i in self.musics:
-            if(i.id==int(id)):
-                return i
-        return None
+        new_stack=Stack.Stack()
+        found=False
+        for _ in range(self.musics.size()):
+            current=self.musics.peek()
+            if(current.id==int(id)):
+                found=True
+                return current
+            new_stack.push(self.musics.pop())
+        while not new_stack.isEmpty():
+            self.musics.push(new_stack.pop())
+        if(not found):
+            return None
+        
     def find_music_by_id_bool(self,id):
         for i in self.musics:
             if(i.id==int(id)):

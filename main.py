@@ -113,6 +113,16 @@ def start():
 
         elif func == "searchw":
             print("searchw")
+        
+        #checked
+        elif func == "countw":
+            singer_id4 = arr[1]
+            music_id4 = arr[2]
+            word = arr[3]
+            singer_target = singers.find_by_id(singer_id4)
+            music_target = singer_target.find_music_by_id(music_id4)
+            count = music_target.count_word(music_target.text, word)
+            print(count)
 
         elif func == "addp":
             playlist_id = arr[1]
@@ -159,14 +169,6 @@ def start():
             target_playlist4 = playlists.search_by_id(playlist_id4)
             target_playlist4.sort_playlist()
 
-        elif func == "countw":
-            singer_id4 = arr[1]
-            music_id4 = arr[2]
-            word = arr[3]
-            singer_target = singers.find_by_id(singer_id4)
-            music_target = singer_target.find_music_by_id(music_id4)
-            count = music_target.count_word(music_target.text, word)
-            print(count)
 
         elif func == "playm":
             singer_id5 = arr[1]
