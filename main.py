@@ -95,6 +95,8 @@ while True:
             new_stack.push(playlists.all_play_list.pop())
         while not new_stack.isEmpty():
             playlists.all_play_list.push(new_stack.pop())
+        history.delete_music_by_id(musics_id)    
+        
             
     elif func=="searchw":
         print("searchw")

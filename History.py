@@ -4,6 +4,7 @@ class History:
     def __init__(self):
         self.musics=Stack.Stack()
         self.count=0
+    
     def play_music(self,music):
         self.musics.push(music)
         for i in self.musics.stack:
@@ -20,8 +21,18 @@ class History:
         print(self.musics.peek())
         for _ in range(self.count):
             self.musics.push(new_stack.pop())
-        self.count+=1      
-    
+        self.count+=1  
+            
+    def delete_music_by_id(self,id):
+        new_stack1=Stack.Stack()
+        for _ in range(self.musics.size()):
+            current_music=self.musics.peek()
+            new_stack1.push(self.musics.pop())
+            if(current_music.id==int(id)):
+                new_stack1.pop()
+                break
+        while not new_stack1.isEmpty():
+             self.musics.push(new_stack1.pop())
     def show(self):
         for i in self.musics.stack:
             print(i.__str__())
