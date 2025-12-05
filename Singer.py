@@ -10,6 +10,11 @@ class Singer:
             if(i.id==int(id)):
                 return i
         return None
+    def find_music_by_id_bool(self,id):
+        for i in self.musics:
+            if(i.id==int(id)):
+                return True
+        return False
     def remove_own_music(self,id):
         music=self.find_music_by_id(id)
         self.musics.remove(music)

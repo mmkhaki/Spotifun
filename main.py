@@ -4,10 +4,11 @@ import Musics
 import Music
 import Playlists
 import Playlist
-import re
+import History
 singers=Singers.Singers(100)
 musics=Musics.Musics()
 playlists=Playlists.Playlists()
+history=History.History()
 # singer1=Singer.Singer("Tataloo",1)
 # music2=Music.Music("Delbar","Tataloo",1,2000,4,"Man bahat ghahram vali22 ...")
 # singer1.add_own_music(music2)
@@ -144,16 +145,36 @@ while True:
         print(count)
         
     elif func=="playm":
-        print("playm")
+        singer_id5=arr[1]
+        music_id5=arr[2]
+        target_music5=musics.search_music_by_id(music_id5)
+        target_singer5=singers.find_by_id(singer_id5)
+        if(target_music5 is None):
+            print(f"No music with id {music_id5}")
+            continue
+        elif(target_singer5 is None):
+            print(f"No singer with id {singer_id5 }")
+            continue
+        if(target_singer5.find_music_by_id_bool(music_id5)):
+            history.play_music(target_music5)
+        else:
+            print(f"No music with id {music_id5} for singer {target_singer5.name}")
+            continue
+            
+        
     elif func=="undo_playm":
-        print("undo_playm")
+        history.undo()
+        
     elif func=="get_max_rated":
         musics.max_rated()
+        
     elif func=="get_min_rated":
         musics.low_rated()
+        
     elif func=="quit":
         print("Goodbye")
         break
+    
     else:
         print("Invalid request")
  
