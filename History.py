@@ -36,3 +36,4 @@ class History:
     def show(self):
         for i in self.musics.stack:
             print(i.__str__())
+            

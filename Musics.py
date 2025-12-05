@@ -9,10 +9,19 @@ class Musics:
         self.allmusics.push(music)
         return music#change
     def search_music(self,name):
-        for i in self.allmusics.stack:
-            if(i.name==name):
-                return printmusic(i)
-        return print("We dont have music with name ",name)
+        new_stack=Stack.Stack()
+        found=False
+        for _ in range(self.allmusics.size()):
+            current=self.allmusics.peek()
+            if(current.name==name):
+                printmusic(current)
+                found=True
+            new_stack.push(self.allmusics.pop())
+        if(found):
+            while not new_stack.isEmpty():
+                self.allmusics.push(new_stack.pop())
+        else:
+            return print("We dont have music with name ",name)
     def delete_music(self,id):
         new_stack=Stack.Stack()
         for _ in range(self.allmusics.size()):

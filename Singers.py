@@ -12,6 +12,8 @@ class Singers:
         if not self.contains(x.id):
             self.sparse[x.id] = len(self.dense)
             self.dense.append(x)
+            print(f"{x.name} add suuccessfully")
+
         else:
             print("We have a singer with id ",x.id)
 
@@ -19,12 +21,12 @@ class Singers:
         if not self.contains(x):
             print("We dont have a singer with id ",x)
             return
-        idx = self.sparse[x]          # محل x در dense
-        last = self.dense[-1]         # آخرین عنصر
-        self.dense[idx] = last        # جابجایی
-        self.sparse[last.id] = idx       # آپدیت sparse
-        self.dense.pop()              # حذف آخر
-        self.sparse[x] = -1           # علامت حذف
+        idx = self.sparse[x]          
+        last = self.dense[-1]         
+        self.dense[idx] = last        
+        self.sparse[last.id] = idx       
+        self.dense.pop()              
+        self.sparse[x] = -1         
 
     def __iter__(self):
         return iter(self.dense)
@@ -66,8 +68,8 @@ def printSingers(singers):
     for i in singers:
         print(f"Singer_id:{i.id} Singer_name:{i.name}")
 def printSinger(singer):
-        print(f"id:{singer.id} name:{singer.name}")
+        print(f"Singer_name->{singer.name} Singer_id->{singer.id}")
 def print_singer_music(singer):
         for i in singer.musics:
-            print(f"music name:{i.name} music singer:{i.singer} music id:{i.id} music year:{i.year} music score:{i.score} music text:{i.text}")
+            print(f"*Music_name->{i.name}* *Music_singer->{i.singer}* *Music_id->{i.id}* *Music_year->{i.year}* *Music_score->{i.score}* *Music_text->{i.text}*")
     
