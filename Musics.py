@@ -24,26 +24,28 @@ class Musics:
     def delete_music(self,id):
         new_stack=Stack.Stack()
         for _ in range(self.allmusics.size()):
-            if(self.allmusics.size()==0):
-                break
-            current_id=self.allmusics.peek()
-            if(current_id==id):
+            current=self.allmusics.peek()
+            if(current.id==int(id)):
                 self.allmusics.pop()
+                break
             new_stack.push(self.allmusics.pop())
-        self.allmusics=new_stack
+        while not new_stack.isEmpty():
+            self.allmusics.push(new_stack.pop())
         
     def max_rated(self):
         if self.allmusics.isEmpty():
             return None
-
         max_music = None
         max_score = -1
-
-        for music in self.allmusics.stack:  
-            if float(music.score) > max_score:
-                max_score = float(music.score)
-                max_music = music
-    
+        new_stack=Stack.Stack()
+        for _ in range(self.allmusics.size()):  
+            current=self.allmusics.peek()
+            if float(current.score) > max_score:
+                max_score = float(current.score)
+                max_music = current
+            new_stack.push(self.allmusics.pop())
+        while not new_stack.isEmpty():
+            self.allmusics.push(new_stack.pop())
         return printmusic(max_music)
 
     def low_rated(self):

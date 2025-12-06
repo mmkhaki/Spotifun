@@ -35,7 +35,8 @@ class Singers:
         if self.contains(x):
             singer=self.dense[self.sparse[x]]
             printSinger(singer)
-            print_singer_music(singer)
+            for j in singer.musics.stack:
+                print(f"*Music_name->{j.name}* *Music_singer->{j.singer}* *Music_id->{j.id}* *Music_year->{j.year}* *Music_score->{j.score}* *Music_text->{j.text}*")
             
         else:
             print("We dont have a singer with id ",x)
@@ -70,5 +71,5 @@ def printSingers(singers):
 def printSinger(singer):
         print(f"Singer_name->{singer.name} Singer_id->{singer.id}")
 def print_singer_music(singer):
-        for i in singer.musics.stack:
-            print(f"*Music_name->{i.name}* *Music_singer->{i.singer}* *Music_id->{i.id}* *Music_year->{i.year}* *Music_score->{i.score}* *Music_text->{i.text}*")
+    for j in singer.musics.stack:
+        print(f"*Music_name->{j.name}* *Music_singer->{j.singer}* *Music_id->{j.id}* *Music_year->{j.year}* *Music_score->{j.score}* *Music_text->{j.text}*")

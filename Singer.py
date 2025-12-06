@@ -36,11 +36,15 @@ class Singer:
         
         
     def remove_own_music(self, id):
-        music = self.find_music_by_id(id)
-        if music is None:
-            (f"No music with id {id} for singer {self.name}")
-            return
-        self.musics.remove(music)
+        new_stack=Stack.Stack()
+        for _ in range(self.musics.size()):
+            current2=self.musics.peek()
+            if(current2.id==int(id)):
+                self.musics.pop()
+                break
+            new_stack.push(self.musics.pop())
+        while not new_stack.isEmpty():
+            self.musics.push(new_stack.pop())            
         
     
         
