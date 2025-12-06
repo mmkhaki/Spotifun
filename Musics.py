@@ -39,12 +39,12 @@ class Musics:
         max_music = None
         max_score = -1
 
-        for music in self.allmusics.stack:   # ← بدون خراب کردن استک
+        for music in self.allmusics.stack:  
             if float(music.score) > max_score:
                 max_score = float(music.score)
                 max_music = music
     
-        return max_music
+        return printmusic(max_music)
 
     def low_rated(self):
         if self.allmusics.isEmpty():
@@ -70,12 +70,14 @@ class Musics:
             current=self.allmusics.peek()
             if(current.id==int(id)):
                 found=True
-                return current
+                break
             new_stack.push(self.allmusics.pop())
         while not new_stack.isEmpty():
             self.allmusics.push(new_stack.pop()) 
         if(not found):
             return None
+        else:
+            return current
     # def max_rated(self):
     #     min_rated=0
     #     for i in self.allmusics:

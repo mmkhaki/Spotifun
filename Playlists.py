@@ -14,10 +14,12 @@ class Playlists:
         for _ in range(self.all_play_list.size()):
             current=self.all_play_list.peek()
             if current.id==id:
-                return current
+                found=True
+                break
             new_stack.push(self.all_play_list.pop())
         while not new_stack.isEmpty():
             self.all_play_list.push(new_stack.pop())
         if(not found):
-            print("HH")
             return None
+        else:
+            return current

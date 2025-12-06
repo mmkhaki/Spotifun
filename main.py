@@ -152,6 +152,9 @@ def start():
             playlist_id2 = arr[1]
             music_id2 = arr[2]
             target_playlist2 = playlists.search_by_id(playlist_id2)
+            if (target_playlist2 is None):
+                print(f"No playlist with id {playlist_id2}")
+                continue
             target_music2 = target_playlist2.search_music(music_id2)
             if (target_music2 is None):
                 print(f"No music with id {music_id2}")
