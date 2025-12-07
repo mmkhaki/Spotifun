@@ -44,7 +44,8 @@ def start():
         if func == "adds":
             if(int(arr[1])>100):
                 print("Invalid id (Should be smaller than 100)")
-                return
+                continue
+            
             singer = Singer.Singer(arr[2], int(arr[1]))
             singers.add(singer)
 
@@ -113,7 +114,18 @@ def start():
             history.delete_music_by_id(musics_id)
 
         elif func == "searchw":
-            print("searchw")
+            singer_id6=arr[1]
+            music_id6=arr[2]
+            word=arr[3]
+            target_singer6=singers.find_by_id(singer_id6)
+            target_music6=target_singer6.find_music_by_id(music_id6)
+            text=target_music6.text
+            for i in range(len(text)):
+                if text[i] == word[0]:
+                    y =text[i:i+len(word)]
+                    if y == word:
+                        print(f"{i} to {i+len(word)-1}")
+                        break
         
         #checked
         elif func == "countw":
@@ -122,7 +134,13 @@ def start():
             word = arr[3]
             singer_target = singers.find_by_id(singer_id4)
             music_target = singer_target.find_music_by_id(music_id4)
-            count = music_target.count_word(music_target.text, word)
+            text=music_target.text
+            count=0
+            for i in range(len(text)):
+                if text[i] == word[0]:
+                    y =text[i:i+len(word)]
+                    if y == word:
+                        count+=1
             print(count)
 
         #checked
@@ -139,6 +157,12 @@ def start():
             playlist_id = arr[2]
             target_playlist = playlists.search_by_id(playlist_id)
             target_music = musics.search_music_by_id(music_id)
+            if(target_music is None):
+                print(f"we dont have music with id {music_id}")
+                continue
+            if(target_playlist is None):
+                print(f"We dont have playlist with id {playlist_id}")
+                continue
             target_playlist.add_music(target_music)
             target_playlist.show_playlist()  # edit
 
