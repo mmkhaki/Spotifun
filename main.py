@@ -52,7 +52,11 @@ def start():
         #checked
         elif func == "dels":
             id = int(arr[1])
+            singer=singers.find_by_id(id)
             singers.remove(id)
+            history.delete_musics_by_singer(singer.name)
+            
+            
 
         #checked
         elif func == "finds":

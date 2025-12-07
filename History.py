@@ -33,6 +33,16 @@ class History:
                 break
         while not new_stack1.isEmpty():
              self.musics.push(new_stack1.pop())
+             
+    def delete_musics_by_singer(self,name):
+        new_stack2=Stack.Stack()
+        for _ in range(self.musics.size()):
+            current_music=self.musics.peek()
+            new_stack2.push(self.musics.pop())
+            if(current_music.singer==name):
+                new_stack2.pop()
+        while not new_stack2.isEmpty():
+             self.musics.push(new_stack2.pop())
     def show(self):
         for i in self.musics.stack:
             print(i.__str__())

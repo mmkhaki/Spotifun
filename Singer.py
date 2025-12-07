@@ -27,12 +27,13 @@ class Singer:
             current=self.musics.peek()
             if(current.id==int(id)):
                 found=True
-                return True
             new_stack.push(self.musics.pop())
         while not new_stack.isEmpty():
             self.musics.push(new_stack.pop())
         if(not found):
             return False
+        else:
+            return True
         
         
     def remove_own_music(self, id):
