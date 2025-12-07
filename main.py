@@ -66,6 +66,9 @@ def start():
         #checked
         elif func == "cls":
             singers.cls()
+            musics.cls()
+            playlists.cls()
+            history.cls()
 
         #checked
         elif func == "findms":
@@ -198,7 +201,10 @@ def start():
         elif func == "showp":
             playlist_id4 = arr[1]
             target_playlist4 = playlists.search_by_id(playlist_id4)
-            target_playlist4.sort_playlist()
+            if(target_playlist4 is not None):
+                target_playlist4.sort_playlist()
+            else:
+                print("Playlist is Empty")
 
 
         elif func == "playm":

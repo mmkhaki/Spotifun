@@ -80,6 +80,9 @@ class Musics:
             return None
         else:
             return current
+        
+    def cls(self):
+        self.allmusics.stack=[]
     # def max_rated(self):
     #     min_rated=0
     #     for i in self.allmusics:

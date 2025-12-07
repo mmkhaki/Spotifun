@@ -23,3 +23,6 @@ class Playlists:
             return None
         else:
             return current
+    def cls(self):
+        self.all_play_list.stack=[]
+    
