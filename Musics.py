@@ -4,6 +4,9 @@ import Stack
 class Musics:
     def __init__(self):
         self.allmusics=Stack.Stack()
+        
+            
+            
     def add_music(self,name,singer,id,year,score,text):
         music=Music.Music(name,singer,id,year,score,text)
         self.allmusics.push(music)

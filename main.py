@@ -34,6 +34,7 @@ def start():
     arr = request.strip().split()
     func = arr[0]
     i = 0
+    id_generator=1
     while True:
         if (i != 0):
             request = input()
@@ -96,10 +97,10 @@ def start():
             music_text = " ".join(text)
             target_singer = singers.find_by_name(singer_name)
             if(target_singer is not None):
-                target_music = musics.add_music(music_name, singer_name, musics.allmusics.size(
-                ), music_year, music_score, music_text)
+                target_music = musics.add_music(music_name, singer_name, id_generator, music_year, music_score, music_text)
                 target_singer.add_own_music(target_music)
                 print(f"Saved successfully {music_name}")
+                id_generator+=1
             else:
                 print(f"Please Try again we dont have singer with name {singer_name}")
 
